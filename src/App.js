@@ -16,6 +16,10 @@ function App() {
 
   async function fetchVies(code) {
     const vat = code;
+        if (code === '')
+    {
+      setMessage('Please enter code')
+      }
     const vatResult = await fetch(`http://localhost:3001/checkVat/${vat}`);
     const vatData = await vatResult.json();
     setVatInfo(vatData);
